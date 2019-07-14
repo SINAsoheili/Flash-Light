@@ -7,4 +7,33 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.example.flashlight.Light_Button_View_Background
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <ToggleButton
+        android:id="@+id/btn_light"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/btn_select"
+        android:textColor="#FFFFFF"
+        />
+
+    <TextView
+        android:id="@+id/tv_sos"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="S.O.S"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/sos_btn_background"
+        android:padding="10dp"
+        />
+
 </RelativeLayout>

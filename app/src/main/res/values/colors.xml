@@ -9,4 +9,10 @@
     <color name="circle_off">#8D8D8D</color>
     <!--<color name="circle_on">#53B0E7</color>-->
     <color name="circle_on">#FF0000</color>
+
+    <color name="btn_view_stroke_off">#C0C0C0</color>
+    <color name="btn_view_stroke_on">#FF0000</color>
+
+    <color name="natural_btn">#D1D1D1</color>
+    <color name="sos_btn">#D1D1D1</color>
 </resources>
