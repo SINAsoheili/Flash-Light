@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!--<color name="background">#131313</color>-->
+    <color name="background">#000000</color>
+    <color name="circle_off">#8D8D8D</color>
+    <!--<color name="circle_on">#53B0E7</color>-->
+    <color name="circle_on">#FF0000</color>
 </resources>
