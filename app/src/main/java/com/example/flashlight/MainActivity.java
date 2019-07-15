@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ToggleButton tglbtn;
     TextView tv_sos;
     Flash_Manager fm;
+    ImageView iv_info;
     boolean sos_enable = false;
 
     @Override
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tglbtn.setOnClickListener(this);
         tv_sos = findViewById(R.id.tv_sos);
         tv_sos.setOnClickListener(this);
+        iv_info = findViewById(R.id.iv_info);
+        iv_info.setOnClickListener(this);
         fm = new Flash_Manager(this);
 
         if(fm.has_system_flash() == false)
@@ -85,6 +89,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 fm.sos(false , lbvb);
                 sos_enable = false;
             }
+        }
+        else if(view.getId() == iv_info.getId())
+        {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setTitle("info");
+            dialog.setMessage("www.sinasoheili79@gmail.com");
+            dialog.show();
         }
     }
 }

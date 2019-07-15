@@ -36,4 +36,16 @@
         android:padding="10dp"
         />
 
+    <ImageView
+        android:id="@+id/iv_info"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/info"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@id/tv_sos"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/natural_btn_background"
+        android:padding="8dp"
+        />
+
 </RelativeLayout>
