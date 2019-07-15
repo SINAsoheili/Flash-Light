@@ -106,5 +106,35 @@ public class Flash_Manager
             lbvb.set_light_off();
         }
     }
+
+    public void sos(boolean enable)
+    {
+        if(enable == true)
+        {
+            t = new Timer();
+            t.scheduleAtFixedRate(new TimerTask()
+            {
+                @Override
+                public void run()
+                {
+                    turn_on_flash();
+                    try
+                    {
+                        Thread.sleep(100);
+                    }
+                    catch (InterruptedException e)
+                    {
+                        e.printStackTrace();
+                    }
+                    turn_off_flash();
+                }
+            } , 0 , 300);
+        }
+        else
+        {
+            t.cancel();
+            turn_off_flash();
+        }
+    }
 }
 
