@@ -83,11 +83,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
                 fm.sos(true , lbvb);
                 sos_enable = true;
+                tglbtn.setText("");
             }
             else
             {
                 fm.sos(false , lbvb);
                 sos_enable = false;
+                tglbtn.setChecked(false);
             }
         }
         else if(view.getId() == iv_info.getId())
