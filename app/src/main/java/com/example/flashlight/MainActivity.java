@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView tv_sos;
     Flash_Manager fm;
     ImageView iv_info;
+    ImageView iv_setting;
     boolean sos_enable = false;
 
     @Override
@@ -35,20 +36,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lbvb = findViewById(R.id.background);
-        tglbtn = findViewById(R.id.btn_light);
-        tglbtn.setOnClickListener(this);
-        tv_sos = findViewById(R.id.tv_sos);
-        tv_sos.setOnClickListener(this);
-        iv_info = findViewById(R.id.iv_info);
-        iv_info.setOnClickListener(this);
+        init_obj();
+
         fm = new Flash_Manager(this);
 
+        check_has_flash();
+    }
+
+    public void init_obj()
+    {
+        lbvb        = findViewById(R.id.background);
+        tglbtn      = findViewById(R.id.btn_light);
+        tv_sos      = findViewById(R.id.tv_sos);
+        iv_info     = findViewById(R.id.iv_info);
+        iv_setting  = findViewById(R.id.iv_setting);
+
+        tv_sos.setOnClickListener(this);
+        tglbtn.setOnClickListener(this);
+        iv_info.setOnClickListener(this);
+        iv_setting.setOnClickListener(this);
+    }
+
+    public void check_has_flash()
+    {
         if(fm.has_system_flash() == false)
         {
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
             dialog.setTitle("WARNING : ");
             dialog.setMessage("your device hasn't torch");
+            dialog.setCancelable(false);
             dialog.setNeutralButton("OK", new DialogInterface.OnClickListener()
             {
                 @Override
@@ -81,13 +97,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             if(sos_enable == false)
             {
-                fm.sos(true , lbvb);
+                fm.sos(true , lbvb );
                 sos_enable = true;
                 tglbtn.setText("");
             }
             else
             {
-                fm.sos(false , lbvb);
+                fm.sos(false , lbvb );
                 sos_enable = false;
                 tglbtn.setChecked(false);
             }
@@ -98,6 +114,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             dialog.setTitle("info");
             dialog.setMessage("www.sinasoheili79@gmail.com");
             dialog.show();
+        }
+        else if(view.getId() == iv_setting.getId())
+        {
+            Setting_dialog_fragment df = new Setting_dialog_fragment(this);
+            df.show(this.getSupportFragmentManager() , null);
         }
     }
 }

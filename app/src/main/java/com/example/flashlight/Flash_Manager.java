@@ -1,6 +1,7 @@
 package com.example.flashlight;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
@@ -15,6 +16,8 @@ public class Flash_Manager
     private String camera_id;
     private boolean is_flash_on;
     private Timer t;
+
+    public static final String tag_pref = "speed_pref";
 
     public Flash_Manager(Context context)
     {
@@ -78,6 +81,9 @@ public class Flash_Manager
     {
         if(enable == true)
         {
+            SharedPreferences pref = context.getSharedPreferences(tag_pref , Context.MODE_PRIVATE);
+            int period = pref.getInt(Setting_dialog_fragment.tag_seekbar , 500);
+
             t = new Timer();
             t.scheduleAtFixedRate(new TimerTask()
             {
@@ -97,7 +103,7 @@ public class Flash_Manager
                     turn_off_flash();
                     lbvb.set_light_off();
                 }
-            } , 0 , 300);
+            } , 0 , period);
         }
         else
         {

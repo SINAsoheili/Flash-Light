@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tv_change_speed_sos_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="change speed of s.o.s"
+        android:textColor="#464646"
+        />
+
+    <TextView
+        android:id="@+id/tv_fast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fast"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/tv_change_speed_sos_title"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_slow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="slow"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/tv_fast"
+        android:layout_marginRight="10dp"
+        />
+
+    <SeekBar
+        android:id="@+id/sb_speed_sos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_slow"
+        android:layout_marginTop="4dp"
+        />
+
+</RelativeLayout>
